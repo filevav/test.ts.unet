@@ -13,8 +13,8 @@ export class BasePage {
         this.logo = $('[src$="EKmGhkzN-x.png"]');
         this.loginBtn = $('#btnLoginOpen');
         this.userCondition = $('.btn-group [href="/profile"]');
-        this.searchField = $('[name="search"]');
-        this.submitSearchBtn = $('.button.search-form__submit');
+        this.searchField = $('[name="q"]');
+        this.submitSearchBtn = $('.submit-search');
         this.logoutBtn = $('.btn-group [href="/users/logout"]');
     };
 

@@ -7,6 +7,7 @@ export class LoginPage {
     private requiredEmail: ElementFinder;
     private requiredPass: ElementFinder;
     private invalidEmail: ElementFinder;
+    private invalidPass: ElementFinder;
 
     constructor() {
         this.email = $('.login_form #users_models_LoginForm_username');
@@ -15,7 +16,8 @@ export class LoginPage {
         this.requiredEmail = $('#login_form #users_models_LoginForm_username_em_');
         this.requiredPass = $('#login_form #users_models_LoginForm_password_em_');
         this.invalidEmail = $('#login_form #users_models_LoginForm_username_em_');
-    }
+        this.invalidPass = $('#login_form #users_models_LoginForm_password_em_');
+    };
 
     public async typeEmail(email) {
         await this.email.click();
@@ -60,5 +62,10 @@ export class LoginPage {
     public async invalidEmailError() {
         await browser.wait(EC.visibilityOf(this.invalidEmail), 5000, 'Waiting for invalidEmail');
         return await this.invalidEmail.getText();
+    };
+
+    public async invalidPasswordError() {
+        await browser.wait(EC.visibilityOf(this.invalidPass), 5000, 'Waiting for invalidEmail');
+        return await this.invalidPass.getText();
     };
 };
