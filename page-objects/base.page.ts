@@ -8,7 +8,6 @@ export class BasePage {
     private submitSearchBtn: ElementFinder;
     private logoutBtn: ElementFinder;
 
-
     constructor() {
         this.logo = $('[src$="EKmGhkzN-x.png"]');
         this.loginBtn = $('#btnLoginOpen');
@@ -18,18 +17,18 @@ export class BasePage {
         this.logoutBtn = $('.btn-group [href="/users/logout"]');
     };
 
-    public async logInBtn() {
+    public async start() {
+        await browser.get('/');
+        await browser.wait(EC.visibilityOf(this.logo), 5000, `Waiting for logo`);
+    };
+
+    public async logInTextBtn() {
         await browser.wait(EC.visibilityOf(this.loginBtn), 5000, 'Waiting for loginBtn');
         return await this.loginBtn.getText();
     };
 
-    public async loginInit() {
+    public async logInInit() {
         await this.loginBtn.click();
-    };
-
-    public async start() {
-        await browser.get('/');
-        await browser.wait(EC.visibilityOf(this.logo), 5000, `Waiting for logo`);
     };
 
     public async userLogedIn() {
@@ -44,7 +43,7 @@ export class BasePage {
         await this.submitSearchBtn.click();
     };
 
-    public async logout() {
+    public async logOut() {
         await browser.wait(EC.visibilityOf(this.logoutBtn), 5000, `Waiting for logoutBtn`);
         await this.logoutBtn.click();
     };

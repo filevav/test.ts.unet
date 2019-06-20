@@ -36,11 +36,20 @@ export class LoginPage {
         await this.loginBtn.click();
     };
 
-    public async login(email, password) {
+    public async logIn(email, password) {
         await this.typeEmail(email);
         await this.typePassword(password);
         await this.email.click();
         await this.sendCredentials();
+    };
+
+    public async logInWithInvalidPass(email, password) {
+        await this.typeEmail(email);
+        await this.typePassword(password);
+        await this.sendCredentials();
+        await browser.sleep(1000);
+        await this.password.click();
+        await browser.wait(EC.visibilityOf(this.invalidPass), 5000, 'Waiting for invalidPass');
     };
 
     public async logInWithoutCreds() {
@@ -65,7 +74,7 @@ export class LoginPage {
     };
 
     public async invalidPasswordError() {
-        await browser.wait(EC.visibilityOf(this.invalidPass), 5000, 'Waiting for invalidEmail');
+        await browser.wait(EC.visibilityOf(this.invalidPass), 9000, 'Waiting for invalidPass');
         return await this.invalidPass.getText();
     };
 };
