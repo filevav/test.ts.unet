@@ -1,35 +1,35 @@
 export class Constants {
-    private emailData: string;
-    private passData: string;
-    private invalidEmailData: string;
-    private invalidPassData: string;
-    private searchQueryData: string;
+    private _validEmail: string;
+    private _validPass: string;
+    private _invalidEmail: string;
+    private _invalidPass: string;
+    private _searchQuery: string;
 
     constructor() {
-        this.emailData = 'andrey.qa@ukr.net';
-        this.passData = 'secret';
-        this.invalidEmailData = 'qa@net';
-        this.invalidPassData = '1';
-        this.searchQueryData = 'администрация';
+        this._validEmail = 'andrey.qa@ukr.net';
+        this._validPass = 'secret';
+        this._invalidEmail = 'qa@net';
+        this._invalidPass = '1';
+        this._searchQuery = 'администрация';
     };
 
     public async validEmail() {
-        return await this.emailData;
+        return await this._validEmail;
     };
 
     public async validPassword() {
-        return await this.passData;
+        return await this._validPass;
     };
 
     public async invalidEmail() {
-        return await this.invalidEmailData;
+        return await this._invalidEmail;
     };
 
     public async invalidPassword() {
-        return await this.invalidPassData;
+        return await this._invalidPass;
     };
 
     public async searchQuery() {
-        return await this.searchQueryData;
+        return await this._searchQuery;
     };
 };

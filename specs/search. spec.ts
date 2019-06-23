@@ -3,9 +3,9 @@ import { BasePage } from "../page-objects/base.page";
 import { SearchResultPage } from "../page-objects/search.result.page";
 import { Constants } from "../page-objects/constants";
 
-const goToBasePage : BasePage = new BasePage;
-const goToSearchResult : SearchResultPage = new SearchResultPage;
-const constant : Constants = new Constants;
+const goToBasePage : BasePage = new BasePage,
+      goToSearchResult : SearchResultPage = new SearchResultPage,
+      constant : Constants = new Constants;
 
 beforeEach(async ()=> {
     await browser.waitForAngularEnabled(false);
